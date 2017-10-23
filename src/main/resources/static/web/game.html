@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+    <style>
+        body{
+            background: #f2f2f2;
+            padding: 40px;
+        }
+        .table{
+            border: 0;
+            width:  auto;
+        }
+        .table th{
+            color: #f8c8d;
+            text-align: center;
+            border: 0;
+            font-size: 10px;
+            padding: 0;
+        }
+        .table td, table th{
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        #testBoard{
+            background: url("/img/water.png")
+        }
+
+
+        .water{
+            background: url(/img/water.png) 100% 100%
+        }
+        .salvo{
+            background: red;
+        }
+        .ship{
+            background: green;
+        }
+
+        .water.salvo{
+            background: purple;
+        }
+        .ship.salvo{
+            background: yellow;
+        }
+
+
+        .ship.horizontal, #ghostShip.horizontal{
+            -ms-transform: rotate(-90deg); /* IE 9 */
+            -ms-transform-origin: 0% 0%; /* IE 9 */
+            -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+            -webkit-transform-origin: 0% 0%; /* Chrome, Safari, Opera */
+            transform: rotate(-90deg) translate(-50px);
+            transform-origin: 0% 0%;
+        }
+
+        .aircraftCarrier{
+            width: 50px;
+            height: 250px;
+        }
+        .battleship{
+            width: 50px;
+            height: 200px;
+        }
+        .submarine{
+            width: 50px;
+            height: 150px;
+        }
+        .destroyer{
+            width: 50px;
+            height: 150px;
+        }
+        .patrolBoat{
+            width: 50px;
+            height: 100px;
+        }
+        #ships .ship{
+            margin: 5px;
+            float: left;
+            z-index: 1000;
+            cursor: pointer;
+            background: url(/img/ship.png);
+            background-size: 100% 100%;
+        }
+        #boardContainer{
+            position: relative
+        }
+        #ghostShip{
+            position: absolute;
+            background: url(/img/ship.png);
+            background-size: 100% 100%;
+        }
+        #ghostShip.invalid{
+            background-color: rgba(255,0,0,0.5)
+        }
+        #ghostShip.valid{
+            background-color: rgba(0,255,0,0.5)
+        }
+    </style>
+</head>
+
+
+<body>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col" style="display: none">
+            <h3 class="text-center">Target Board</h3>
+
+        </div>
+        <div id="ships" class="col-3">
+            <h3 >Place your ships</h3>
+            <div id="" class="aircraftCarrier ship" data-width="1" data-height="5"></div>
+            <div id="battleship" class="battleship ship" data-width="1" data-height="4"></div>
+            <div id="submarine" class="submarine ship" data-width="1" data-height="3"></div>
+            <div id="destroyer" class="destroyer ship" data-width="1" data-height="3"></div>
+            <div id="patrolBoat" class="patrolBoat ship" data-width="1" data-height="2"></div>
+        </div>
+        <div class="col-9">
+            <h3 class="text-center">My Board</h3>
+            <div id="boardContainer">
+                <table id="myBoard"></table>
+                <div id="ghostShip"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+<script src="/web/game.js"></script>
+</body>
+</html>
